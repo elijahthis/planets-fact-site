@@ -1,0 +1,75 @@
+@import "config";
+
+body {
+  font-family: Antonio;
+  font-style: normal;
+  font-weight: normal;
+  background-color: #070724;
+  background-image: url(../images/background-stars.svg);
+}
+h1 {
+  font-size: 75px;
+  // font-size: 58px;
+  line-height: 104px;
+  text-transform: uppercase;
+  margin: 20px 0px;
+}
+h2 {
+  font-size: 38px;
+  line-height: 52px;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+h3 {
+  font-family: Spartan;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 25px;
+  letter-spacing: 2.57143px;
+  text-transform: uppercase;
+}
+h4 {
+  font-family: Spartan;
+  font-weight: bold;
+  font-size: 9px;
+  line-height: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: Spartan;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 0 38px 48px 30px;
+  width: 100%;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  margin-top: 100px;
+
+  > * {
+    width: 240px;
+    height: 120px;
+    box-sizing: border-box;
+    border: 1px solid rgba(256, 256, 256, 0.2);
+    padding: 18px;
+
+    p {
+      margin: 0px;
+      font-size: 10.5px;
+      font-weight: bold;
+      color: rgba(256, 256, 256, 0.5);
+      letter-spacing: 1px;
+    }
+    h2 {
+      margin: 0px;
+    }
+  }
+}

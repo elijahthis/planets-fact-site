@@ -1,0 +1,24 @@
+:root {
+  color: rgb(256, 256, 256);
+  $main-col: #ffffff;
+  $main-bg-col: #070724;
+  $btn-hov-col: #d8d8d8;
+
+  $Merc-col: #419ebb;
+  $Ven-col: #eda249;
+  $Ear-col: #6f2ed6;
+  $Mars-col: #d14c32;
+  $Jup-col: #d83a34;
+  $Sat-col: #cd5120;
+  $Ura-col: #1ec2a4;
+  $Nept-col: #2d68f0;
+}
+
+@font-face {
+  font-family: Antonio;
+  src: url(../fonts/Antonio-Regular.ttf);
+}
+@font-face {
+  font-family: Spartan;
+  src: url(../fonts/Spartan-Regular.ttf);
+}

@@ -1,0 +1,82 @@
+:root {
+  color: white;
+}
+
+@font-face {
+  font-family: Antonio;
+  src: url(../fonts/Antonio-Regular.ttf);
+}
+
+@font-face {
+  font-family: Spartan;
+  src: url(../fonts/Spartan-Regular.ttf);
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 72px;
+  padding: 0 38px 0 30px;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header h2 {
+  margin: 0px;
+  font-weight: normal;
+  letter-spacing: -1.05px;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style-type: none;
+  width: 630px;
+  margin: 0px;
+  font-family: Spartan;
+  font-size: 11px;
+}
+
+header nav ul .active:hover {
+  border-top: 0px;
+}
+
+header nav ul .active li {
+  padding: 21px 0px;
+}
+
+header nav ul div:hover {
+  cursor: pointer;
+  border-top: 3px solid;
+}
+
+header nav ul li {
+  padding: 24px 0px;
+  height: 16px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+header nav ul li:hover {
+  padding: 21px 0px;
+}
