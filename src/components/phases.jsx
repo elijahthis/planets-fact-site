@@ -49,6 +49,7 @@ const Phases = (props) => {
                 props.phaseNum === ind
                   ? {
                       borderBottom: "4px solid" + props.planetInfo.color,
+                      opacity: "1",
                     }
                   : { borderColor: props.planetInfo.color }
               }
@@ -60,6 +61,6 @@ const Phases = (props) => {
       </div>
     </>
   );
-}
+};
 
 export default Phases;
