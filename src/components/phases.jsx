@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "../css/crux.css";
 
-function Phases(props) {
+const Phases = (props) => {
   const topics = [
     ["overview", "overview"],
     ["internal structure", "structure"],

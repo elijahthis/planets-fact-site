@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Phases from "./phases";
 import "../css/crux.css";
 import iconSource from "../images/icon-source.svg";
@@ -68,7 +68,6 @@ console.log(el[0]);
 
 const Crux = (props) => {
   let marginVal = props.hideVal ? "72px" : "667px";
-  let displayVal = props.hideVal ? "block" : "none";
   let heightVal = props.hideVal ? "auto" : "0px";
   return (
     <>
@@ -81,6 +80,10 @@ const Crux = (props) => {
                   ? images.internal[props.info.id - 1]
                   : images.main[props.info.id - 1]
               }
+              alt={
+                props.info.pName +
+                (props.phase === 1 ? " internal image" : " planet image")
+              }
             />
 
             {props.phase === 2 ? (
@@ -88,6 +91,7 @@ const Crux = (props) => {
                 <img
                   src={images.geology[props.info.id - 1]}
                   className="img-internal"
+                  alt={props.info.pName + " geology image"}
                 />
               </div>
             ) : (
@@ -101,8 +105,8 @@ const Crux = (props) => {
             <p>{props.info.desc[props.phase]}</p>
             <p className="source">
               Source:{" "}
-              <a href={props.info.resource} target="_blank">
-                Wikipedia <img src={iconSource} />
+              <a href={props.info.resource} target="_blank" rel="noreferrer">
+                Wikipedia <img src={iconSource} alt="source" />
               </a>
             </p>
           </div>
@@ -131,6 +135,10 @@ const Crux = (props) => {
                   ? images.internal[props.info.id - 1]
                   : images.main[props.info.id - 1]
               }
+              alt={
+                props.info.pName +
+                (props.phase === 1 ? " internal image" : " planet image")
+              }
             />
 
             {props.phase === 2 ? (
@@ -138,6 +146,7 @@ const Crux = (props) => {
                 <img
                   src={images.geology[props.info.id - 1]}
                   className="img-internal"
+                  alt={props.info.pName + " geology image"}
                 />
               </div>
             ) : (
@@ -151,8 +160,8 @@ const Crux = (props) => {
             <p>{props.info.desc[props.phase]}</p>
             <p className="source">
               Source:{" "}
-              <a href={props.info.resource} target="_blank">
-                Wikipedia <img src={iconSource} />
+              <a href={props.info.resource} target="_blank" rel="noreferrer">
+                Wikipedia <img src={iconSource} alt="source" />
               </a>
             </p>
           </div>
