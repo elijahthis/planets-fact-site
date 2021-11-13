@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useEffect } from "react";
 import Phases from "./phases";
 import "../css/crux.css";
 import iconSource from "../images/icon-source.svg";
@@ -66,24 +66,27 @@ const images = {
 const el = document.getElementsByClassName("small-wrapper");
 console.log(el[0]);
 
-class Crux extends Component {
-  render() {
-    return (
-      <main>
+const Crux = (props) => {
+  let marginVal = props.hideVal ? "72px" : "667px";
+  let displayVal = props.hideVal ? "block" : "none";
+  let heightVal = props.hideVal ? "auto" : "0px";
+  return (
+    <>
+      <main className="web-tab-main">
         <div className="main-img-wrapper">
           <div className="small-wrapper">
             <img
               src={
-                this.props.phase === 1
-                  ? images.internal[this.props.info.id - 1]
-                  : images.main[this.props.info.id - 1]
+                props.phase === 1
+                  ? images.internal[props.info.id - 1]
+                  : images.main[props.info.id - 1]
               }
             />
 
-            {this.props.phase === 2 ? (
+            {props.phase === 2 ? (
               <div className="div-internal">
                 <img
-                  src={images.geology[this.props.info.id - 1]}
+                  src={images.geology[props.info.id - 1]}
                   className="img-internal"
                 />
               </div>
@@ -93,23 +96,70 @@ class Crux extends Component {
           </div>
         </div>
         <section className="main-section">
-          <h1>{this.props.info.pName}</h1>
-          <p>{this.props.info.desc[this.props.phase]}</p>
-          <p className="source">
-            Source:
-            {/* <Link href="http://localhost:3000/">
-            Wikipedia <img src={iconSource} />
-          </Link> */}
-          </p>
+          <div className="main-txt">
+            <h1>{props.info.pName}</h1>
+            <p>{props.info.desc[props.phase]}</p>
+            <p className="source">
+              Source:{" "}
+              <a href={props.info.resource} target="_blank">
+                Wikipedia <img src={iconSource} />
+              </a>
+            </p>
+          </div>
           <Phases
-            handleChange={this.props.handleChange}
-            phaseNum={this.props.phase}
-            planetInfo={this.props.info}
+            handleChange={props.handleChange}
+            phaseNum={props.phase}
+            planetInfo={props.info}
           />
         </section>
       </main>
-    );
-  }
-}
+
+      <main
+        style={{ marginTop: marginVal, height: heightVal }}
+        className="mobile-main"
+      >
+        <Phases
+          handleChange={props.handleChange}
+          phaseNum={props.phase}
+          planetInfo={props.info}
+        />
+        <div className="main-img-wrapper">
+          <div className="small-wrapper">
+            <img
+              src={
+                props.phase === 1
+                  ? images.internal[props.info.id - 1]
+                  : images.main[props.info.id - 1]
+              }
+            />
+
+            {props.phase === 2 ? (
+              <div className="div-internal">
+                <img
+                  src={images.geology[props.info.id - 1]}
+                  className="img-internal"
+                />
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <section className="main-section">
+          <div className="main-txt">
+            <h1>{props.info.pName}</h1>
+            <p>{props.info.desc[props.phase]}</p>
+            <p className="source">
+              Source:{" "}
+              <a href={props.info.resource} target="_blank">
+                Wikipedia <img src={iconSource} />
+              </a>
+            </p>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+};
 
 export default Crux;

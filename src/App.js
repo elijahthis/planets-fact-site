@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     control: 0,
     phase: 0,
+    hide: false,
     planets: [
       {
         id: 1,
@@ -19,6 +20,7 @@ class App extends Component {
           "Mercury's surface is similar in appearance to that of the Moon, showing extensive mare-like plains and heavy cratering, indicating that it has been geologically inactive for billions of years. It is more heterogeneous than either Mars's or the Moon’s.",
         ],
         properties: ["58.6 DAYS", "87.97 DAYS", 2439.7, 430],
+        resource: "https://en.wikipedia.org/wiki/Mercury_(planet)"
       },
       {
         id: 2,
@@ -30,6 +32,7 @@ class App extends Component {
           "Much of the Venusian surface appears to have been shaped by volcanic activity. Venus has several times as many volcanoes as Earth, and it has 167 large volcanoes that are over 100 km (60 mi) across. The only volcanic complex of this size on Earth is the Big Island of Hawaii.",
         ],
         properties: ["243 DAYS", "224.7 DAYS", 6051.8, 471],
+        resource: "https://en.wikipedia.org/wiki/Venus"
       },
       {
         id: 3,
@@ -41,6 +44,8 @@ class App extends Component {
           "The total surface area of Earth is about 510 million km2. The continental crust consists of lower density material such as the igneous rocks granite and andesite. Less common is basalt, a denser volcanic rock that is the primary constituent of the ocean floors.",
         ],
         properties: ["0.99 DAYS", "365.26 DAYS", 6371, 16],
+        resource: "https://en.wikipedia.org/wiki/Earth"
+
       },
       {
         id: 4,
@@ -52,6 +57,7 @@ class App extends Component {
           "Mars is a terrestrial planet whose surface consists of minerals containing silicon and oxygen, metals, and other elements that typically make up rock. The surface is primarily composed of tholeiitic basalt, although parts are more silica-rich than typical basalt.",
         ],
         properties: ["1.03 DAYS", "1.88 YEARS", 3389.5, -28],
+        resource: "https://en.wikipedia.org/wiki/Mars"
       },
       {
         id: 5,
@@ -63,6 +69,7 @@ class App extends Component {
           "The best known feature of Jupiter is the Great Red Spot, a persistent anticyclonic storm located 22° south of the equator. It is known to have existed since at least 1831, and possibly since 1665.",
         ],
         properties: ["9.93 HOURS", "11.86 YEARS", 69911, -108],
+        resource: "https://en.wikipedia.org/wiki/Jupiter"
       },
       {
         id: 6,
@@ -74,6 +81,7 @@ class App extends Component {
           "The outer atmosphere of Saturn contains 96.3% molecular hydrogen and 3.25% helium by volume. The planet's most famous feature is its prominent ring system, which is composed mostly of ice particles with a smaller amount of rocky debris and dust. ",
         ],
         properties: ["10.8 HOURS", "29.46 YEARS", 58232, -138],
+        resource: "https://en.wikipedia.org/wiki/Saturn"
       },
       {
         id: 7,
@@ -85,6 +93,7 @@ class App extends Component {
           "The composition of Uranus's atmosphere is different from its bulk, consisting mainly of molecular hydrogen and helium. The helium molar fraction, i.e. the number of helium atoms per molecule of gas, is 0.15±0.03 in the upper troposphere.",
         ],
         properties: ["17.2 HOURS", "84 YEARS", 25362, -195],
+        resource: "https://en.wikipedia.org/wiki/Uranus"
       },
       {
         id: 8,
@@ -96,17 +105,23 @@ class App extends Component {
           "Neptune's atmosphere is 80% hydrogen and 19% helium. A trace amount of methane is also present. Prominent absorption bands of methane exist at wavelengths above 600 nm, in the red and infrared portion of the spectrum.",
         ],
         properties: ["16.08 HOURS", "164.79 YEARS", 24622, -201],
+        resource: "https://en.wikipedia.org/wiki/Neptune"
       },
     ],
   };
 
-  changeControl = (ind) => {
+  changeControl = (ind, val) => {
     this.setState({ control: ind });
     this.setState({ phase: 0 });
+    this.setState({ hide: val });
   };
 
   changePhase = (num) => {
     this.setState({ phase: num });
+  };
+
+  hideMenu = () => {
+    this.setState({ hide: false });
   };
 
   render() {
@@ -116,13 +131,16 @@ class App extends Component {
         <NavBar
           info={this.state.planets[control]}
           handleChange={this.changeControl}
+          handleHide={this.hideMenu}
+          hideVal={this.state.hide}
         />
         <Crux
           info={this.state.planets[control]}
           phase={this.state.phase}
           handleChange={this.changePhase}
+          hideVal={this.state.hide}
         />
-        <Footer info={this.state.planets[control]} />
+        <Footer info={this.state.planets[control]} hideVal={this.state.hide} />
       </div>
     );
   }
